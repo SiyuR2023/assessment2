@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inspection</title>
+</head>
+<body>
+    <h1>Book Details</h1>
+    <form action="/details" method="get">
+        <input type="text" name="query" placeholder="Search for books(Title/Author/Publisher/Year)..." style="width: 300px;">
+        <input type="submit" value="Search">
+    </form>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Year</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ book['Book-Title'] }}</td>
+            <td>{{ book['Book-Author'] }}</td>
+            <td>{{ book['Publisher'] }}</td>
+            <td>{{ book['Year-Of-Publication'] }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5">No books found。</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
